@@ -75,23 +75,26 @@
 <body>
     <div class="container">
         <h2>Sign Up</h2>
-        <form action="RegisterServlet" method="post">
+        <form action="wait" method="post">
             <div class="input-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <input type="text" id="name" name="name" placeholder="Enter your  company" required>
             </div>
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your  company email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Create a password" required>
             </div>
-            <div class="input-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
-            </div>
+			
+           
+			<div class="input-group">
+						                <label for="hash">Enter your wallet address</label>
+						                <input type="string" id="hash" name="hash" placeholder="Confirm your wallet address" required>
+			</div>
+			
             <button type="submit">Sign Up</button>
             <p>Already have an account? <a href="/Sign_in">Sign In</a>
         </form>

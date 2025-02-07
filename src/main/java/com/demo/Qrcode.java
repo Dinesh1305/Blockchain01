@@ -35,9 +35,13 @@ public class  Qrcode{
 	        return "Sign_up";  // Ensure "sign-up.jsp" exists
 	    }
 	
-	@RequestMapping("fff")
-	public String addCompany(@RequestParam("Company_name")String  name,@RequestParam("email") String email,@RequestParam("hashaddress")String hash){
-
+	    
+	    
+	    
+	
+	@RequestMapping("wait")
+	public String addCompany(@RequestParam()String  name,@RequestParam() String email,@RequestParam()String password,@RequestParam()String hash){
+		System.out.println(name+""+email+password+hash);
 		
 		return "index";
 	}

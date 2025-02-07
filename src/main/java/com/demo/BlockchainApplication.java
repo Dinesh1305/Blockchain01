@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlcokchainApplication {
+public class BlockchainApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlcokchainApplication.class, args);
+		SpringApplication.run(BlockchainApplication.class, args);
 	}
 
 }
