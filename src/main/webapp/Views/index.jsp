@@ -52,6 +52,7 @@
                 ENTER PRODUCT NUMBER:<input type="text"  name="productid" placeholder="Enter product number"><br>
                 ENTER MANUFACTURING DATE:<input type="text"   name="md" placeholder="Enter manufacturing date"><br>
 				ENTER EXPIRED DATE:<input type="text"  name="ed" placeholder="Enter expired date"><br>
+				ENTER COMPANY ADDRESS:<input type="text"  name="caddress" placeholder="Enter the company address"><br>
                 <input type="submit">
             </form>
         </section>
