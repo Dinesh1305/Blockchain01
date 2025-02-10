@@ -105,8 +105,10 @@
                 <input type="password" id="password" name="password" placeholder="Create a password" required>
             </div>
             <div class="input-group">
-                <label for="hash">Enter your wallet address</label>
-                <input type="text" id="hash" name="hash" placeholder="Confirm your wallet address" required>
+				<label for="caddress">Enter Company Wallet Address:</label>
+									<input type="text" id="caddress" name="caddress" placeholder="Enter your MetaMask address" 
+									       required pattern="^0x[a-fA-F0-9]{40}$" title="Enter a valid Ethereum address (starts with 0x and has 40 characters)">
+									       
             </div>
             <button type="submit">Sign Up</button>
         </form>

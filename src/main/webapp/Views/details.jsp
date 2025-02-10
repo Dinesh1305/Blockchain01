@@ -36,6 +36,23 @@
             font-size: 16px;
             font-weight: bold;
         }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +64,9 @@
             <p><strong>Company Address:</strong> ${companyAddress}</p>
             <p><strong>Hash:</strong> ${productHash}</p>
         </div>
+
+        <!-- Add Product Button -->
+        <a href="http://localhost:5174/manufacturing" class="btn">Add Product</a>
     </div>
 </body>
 </html>
