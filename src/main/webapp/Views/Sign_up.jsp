@@ -60,6 +60,22 @@
         button:hover {
             background: #218838;
         }
+        .unit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .unit-btn:hover {
+            background: #0056b3;
+        }
         p {
             margin-top: 10px;
         }
@@ -78,26 +94,27 @@
         <form action="wait" method="post">
             <div class="input-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your  company" required>
+                <input type="text" id="name" name="name" placeholder="Enter your company" required>
             </div>
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your  company email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your company email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Create a password" required>
             </div>
-			
-           
-			<div class="input-group">
-						                <label for="hash">Enter your wallet address</label>
-						                <input type="string" id="hash" name="hash" placeholder="Confirm your wallet address" required>
-			</div>
-			
+            <div class="input-group">
+                <label for="hash">Enter your wallet address</label>
+                <input type="text" id="hash" name="hash" placeholder="Confirm your wallet address" required>
+            </div>
             <button type="submit">Sign Up</button>
-            <p>Already have an account? <a href="/Sign_in">Sign In</a>
         </form>
+
+        <!-- Manufacturing Unit Button -->
+        <a href="manufacturing_signup" class="unit-btn">Manufacturing Unit Sign-Up</a>
+
+        <p>Already have an account? <a href="/Sign_in">Sign In</a></p>
     </div>
 </body>
 </html>

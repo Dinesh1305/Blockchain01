@@ -75,7 +75,7 @@
 <body>
     <div class="container">
         <h2>Sign In</h2>
-        <form action="LoginServlet" method="post">
+        <form action="check" method="post">
 			
             <div class="input-group">
                 <label for="email">Email</label>
