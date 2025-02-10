@@ -34,29 +34,72 @@
         section {
             padding: 20px;
         }
+        .form-container {
+            display: inline-block;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
+                <!-- Add navigation links here if needed -->
             </ul>
         </nav>
     </header>
+    
     <main>
         <section id="home">
             <h1>Welcome to My Website</h1>
-      
-            <form action="add1">
-                ENTER PRDUCT NAME:<input type="text" name="productname" placeholder="Enter product name"><br>
-                ENTER PRODUCT NUMBER:<input type="text"  name="productid" placeholder="Enter product number"><br>
-                ENTER MANUFACTURING DATE:<input type="text"   name="md" placeholder="Enter manufacturing date"><br>
-				ENTER EXPIRED DATE:<input type="text"  name="ed" placeholder="Enter expired date"><br>
-				ENTER COMPANY ADDRESS:<input type="text"  name="caddress" placeholder="Enter the company address"><br>
-                <input type="submit">
-            </form>
+            
+            <div class="form-container">
+                <form action="add1">
+                    <label for="productname">Enter Product Name:</label>
+                    <input type="text" id="productname" name="productname" placeholder="Enter product name" required>
+                    
+                    <label for="productid">Enter Product Number:</label>
+                    <input type="text" id="productid" name="productid" placeholder="Enter product number" required>
+                    
+                    <label for="md">Enter Manufacturing Date:</label>
+                    <input type="text" id="md" name="md" placeholder="Enter manufacturing date" required>
+                    
+                    <label for="ed">Enter Expiry Date:</label>
+                    <input type="text" id="ed" name="ed" placeholder="Enter expiry date" required>
+                    
+                    <label for="caddress">Enter Company Address:</label>
+                    <input type="text" id="caddress" name="caddress" placeholder="Enter the company address" required>
+                    
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2025 My Website. All rights reserved.</p>
     </footer>

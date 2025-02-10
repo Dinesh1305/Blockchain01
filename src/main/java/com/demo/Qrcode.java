@@ -115,12 +115,16 @@ public class  Qrcode{
 	public ModelAndView add(@RequestParam("productname") String pname, 
 	                        @RequestParam("productid") String pid, 
 	                        @RequestParam("md") String md, 
-	                        @RequestParam("ed") String ed,@RequestParam("caddress") String companyaddress) throws NoSuchAlgorithmException {
+	                        @RequestParam("ed") String ed,
+	                        @RequestParam("caddress") String companyaddress) throws NoSuchAlgorithmException {
 
-		
-		
-	String address=	ProductHashExample.generateProductHash(pname, pid, md, ed);
-	    String details = "Name: " + pname + "\nProduct ID: " + pid + "\nManufacturing Date: " + md + "\nExpired Date: " + ed+"\n Company address:"+companyaddress+"Hash"+address;
+	    // Generate hash for the product
+	    String address = ProductHashExample.generateProductHash(pname, pid, md, ed);
+	    
+	    // Combine details for QR Code
+	    String details = "Name: " + pname + "\nProduct ID: " + pid + "\nManufacturing Date: " + md + 
+	                     "\nExpired Date: " + ed + "\nCompany Address: " + companyaddress + "\nHash: " + address;
+	    
 	    String fileName = "qrcode.png";
 	    String filePath = "src/main/webapp/images/" + fileName; // Ensure this directory exists
 	    int width = 300;
@@ -141,7 +145,10 @@ public class  Qrcode{
 	    }
 
 	    ModelAndView mv = new ModelAndView("details");
-	    mv.addObject("qrCodePath", "images/" + fileName); // Path to access the QR code from JSP
+	    mv.addObject("qrCodePath", "images/" + fileName);  // Path to access the QR code in JSP
+	    mv.addObject("companyAddress", companyaddress);  // Pass company address
+	    mv.addObject("productHash", address);  // Pass the generated hash
 	    return mv;
 	}
+
 }
