@@ -94,7 +94,7 @@
         <form action="wait" method="post">
             <div class="input-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your company" required>
+                <input type="text" id="name" name="name" placeholder="Enter your company name" required>
             </div>
             <div class="input-group">
                 <label for="email">Email</label>
@@ -105,17 +105,15 @@
                 <input type="password" id="password" name="password" placeholder="Create a password" required>
             </div>
             <div class="input-group">
-				<label for="caddress">Enter Company Wallet Address:</label>
-									<input type="text" id="caddress" name="caddress" placeholder="Enter your MetaMask address" 
-									       required pattern="^0x[a-fA-F0-9]{40}$" title="Enter a valid Ethereum address (starts with 0x and has 40 characters)">
-									       
+                <label for="caddress">Enter Company Wallet Address</label>
+                <input type="text" id="caddress" name="caddress" placeholder="Enter your MetaMask address"
+                       required pattern="^0x[a-fA-F0-9]{40}$" 
+                       title="Enter a valid Ethereum address (starts with 0x and has 40 characters)">
             </div>
             <button type="submit">Sign Up</button>
         </form>
 
-        <!-- Manufacturing Unit Button -->
         <a href="manufacturing_signup" class="unit-btn">Manufacturing Unit Sign-Up</a>
-
         <p>Already have an account? <a href="/Sign_in">Sign In</a></p>
     </div>
 </body>

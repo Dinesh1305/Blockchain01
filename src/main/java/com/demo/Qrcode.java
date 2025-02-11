@@ -23,6 +23,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -50,10 +51,10 @@ public class  Qrcode{
 	        try {
 	            // Database Connection
 	            Class.forName("com.mysql.cj.jdbc.Driver");  // Ensure MySQL Driver is loaded
-	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/compaines", "root", "3105");
+	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "3105");
 
 	            // Query to check credentials
-	            String query = "SELECT * FROM  companiesdeatils  WHERE email = ? AND password = ?";
+	            String query = "SELECT * FROM  companydetails  WHERE email = ? AND password = ?";
 	            PreparedStatement stmt = con.prepareStatement(query);
 	            stmt.setString(1, email);
 	            stmt.setString(2, password);
@@ -103,14 +104,17 @@ public class  Qrcode{
 	    
 	    
 	
-	@RequestMapping("wait")
-	public String addCompany(@RequestParam()String  name,@RequestParam() String email,@RequestParam()String password,@RequestParam()String hash)
-	{
-		System.out.println(name+email+password+hash);
-		companyService.saveCompany(name, email, password, hash);
-		return "about_us";
-	
-	}
+	    @PostMapping("/wait")
+	    public String addCompany(@RequestParam String name, 
+	                             @RequestParam String email, 
+	                             @RequestParam String password, 
+	                             @RequestParam String caddress) {
+	        System.out.println("Received: " + name + ", " + email + ", " + password + ", " + caddress);
+	        
+	        companyService.saveCompany(name, email, password, caddress);
+	        return "about_us"; // Ensure about_us.jsp exists
+	    }
+
 	@RequestMapping("add1")
 	public ModelAndView add(@RequestParam("productname") String pname, 
 	                        @RequestParam("productid") String pid, 

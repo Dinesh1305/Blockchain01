@@ -8,12 +8,12 @@ import java.sql.PreparedStatement;
 @Service
 public class CompanyService {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/compaines";
+    private static final String URL = "jdbc:mysql://localhost:3306/company";
     private static final String USER = "root"; // Replace with your MySQL username
     private static final String PASSWORD = "3105"; // Replace with your MySQL password
 
     public void saveCompany(String name, String email, String password, String hash) {
-        String sql = "INSERT INTO companiesdeatils (name, email, password, hash) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO companydetails (name, email, password, hash) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
