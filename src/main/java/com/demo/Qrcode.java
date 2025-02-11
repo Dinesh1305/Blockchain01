@@ -81,9 +81,40 @@ public class  Qrcode{
 	  @RequestMapping("/")
 	    public String start() {
 		  
-		  return "admin_login";
-	     //   return "Sign_up";  // Fix: Ensure it matches "sign-in.jsp"
+		 // return "admin_login";
+	       return "Sign_up";  // Fix: Ensure it matches "sign-in.jsp"
 	    }
+	  @PostMapping("/adminLogin")
+	  public String adminLogin(@RequestParam String email, 
+	                           @RequestParam String password, 
+	                           @RequestParam String hashaddress) {
+	      System.out.println("Admin Login Attempt: " + email + ", " + hashaddress);
+	      System.out.println(password);
+
+	      if (email.equals("dinesh.official1305@gmail.com") && 
+	          password.equals("3105") && 
+	          hashaddress.equals("0xC9C1a710298ad9f18A56897504faBD6f80EF21bf")) {
+	          return "admin_dashboard"; // Ensure admin_dashboard.jsp exists
+	      }
+	      
+	      return "admin_login"; // Redirect to login if credentials are incorrect
+	  }
+
+
+	  @RequestMapping("adminLogin")
+	  public String admin()
+	  {
+		  return "admin_login";
+		  
+	  }
+	  
+	  
+	  @RequestMapping("admin_login")
+	  public String adminside()
+	  {
+		  return "admin_login";
+	  }
+	  
 	  
 	  @RequestMapping("Sign_up")
 	    public String sign() {
