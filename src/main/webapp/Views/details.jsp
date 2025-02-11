@@ -66,7 +66,7 @@
         </div>
 
         <!-- Add Product Button -->
-        <a href="http://localhost:5174/manufacturing" class="btn">Add Product</a>
+        <a href="http://localhost:5173/manufacturing" class="btn">Add Product</a>
     </div>
 </body>
 </html>
