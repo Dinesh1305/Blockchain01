@@ -81,7 +81,8 @@ public class  Qrcode{
 	  @RequestMapping("/")
 	    public String start() {
 		  
-	        return "Sign_up";  // Fix: Ensure it matches "sign-in.jsp"
+		  return "admin_login";
+	     //   return "Sign_up";  // Fix: Ensure it matches "sign-in.jsp"
 	    }
 	  
 	  @RequestMapping("Sign_up")
