@@ -47,10 +47,10 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        .logout-btn, .owner-btn, .remove-btn {
+        .logout-btn, .owner-btn, .remove-btn, .add-btn {
             display: inline-block;
             padding: 10px 15px;
-            margin-top: 10px;
+            margin: 5px;
             text-decoration: none;
             border-radius: 5px;
             color: white;
@@ -68,6 +68,12 @@
         }
         .owner-btn:hover {
             background-color: #0056b3;
+        }
+        .add-btn {
+            background-color: #28a745;
+        }
+        .add-btn:hover {
+            background-color: #218838;
         }
         .remove-btn {
             background-color: #ff0000;
@@ -112,9 +118,16 @@
                             <td><%= companyEmail %></td>
                             <td><%= rs.getString("hash") %></td>
                             <td>
-                                <form action="remover" method="post">
+                                <!-- Add Button -->
+                                <form action="remover" method="post" style="display:inline;">
                                     <input type="hidden" name="email" value="<%= companyEmail %>">
-                                    <button type="submit" class="remove-btn">Remove</button>
+                                    <button type="submit" class="add-btn">ADD</button>
+                                </form>
+
+                                <!-- Remove Button -->
+                                <form action="removeCompany" method="post" style="display:inline;">
+                                    <input type="hidden" name="email" value="<%= companyEmail %>">
+                                    <button type="submit" class="remove-btn">REMOVE</button>
                                 </form>
                             </td>
                         </tr>

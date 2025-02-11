@@ -67,6 +67,32 @@ public class  Qrcode{
         return "admin_dashboard"; // Redirect back to the dashboard
     }
     
+    @PostMapping("removeCompany")
+    public String remove(@RequestParam("email") String email, HttpServletRequest request) {
+        try {
+        	
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "3105");
+
+            String sql = "DELETE FROM companydetails WHERE email = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+
+            int rowsAffected = stmt.executeUpdate();
+            conn.close();
+
+            if (rowsAffected > 0) {
+                request.setAttribute("message", "Company removed successfully!");
+            } else {
+                request.setAttribute("message", "Company not found!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("message", "Database error!");
+        }
+
+        return "admin_dashboard"; // Redirect back to the dashboard
+    }
     
     
     
@@ -81,7 +107,7 @@ public class  Qrcode{
 	    @RequestMapping("check")
 	    public ModelAndView check(@RequestParam("email") String email, @RequestParam("password") String password) {
 	        ModelAndView mv = new ModelAndView();
-	        
+	        System.out.println("hi");
 	        try {
 	            // Database Connection
 	            Class.forName("com.mysql.cj.jdbc.Driver");  // Ensure MySQL Driver is loaded
@@ -101,14 +127,14 @@ public class  Qrcode{
 	               // mv.setViewName("http://localhost:5173/company");
 	            } else {
 	                // If incorrect, return error message
-	                mv.setViewName("sign_in");
+	                mv.setViewName("Sign_in");
 	                mv.addObject("message", "Invalid email or password!");
 	            }
 
 	            con.close();
 	        } catch (Exception e) {
 	            e.printStackTrace();
-	            mv.setViewName("error");
+	            mv.setViewName("Sign_in");
 	            mv.addObject("message", "Database error occurred!");
 	        }
 
