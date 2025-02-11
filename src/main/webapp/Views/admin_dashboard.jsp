@@ -47,17 +47,23 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        .logout-btn {
+        .logout-btn, .owner-btn {
             display: inline-block;
             padding: 10px 20px;
             margin-top: 15px;
-            background-color: #dc3545;
+            background-color: #007bff;
             color: white;
             text-decoration: none;
             border-radius: 5px;
         }
+        .logout-btn {
+            background-color: #dc3545;
+        }
         .logout-btn:hover {
             background-color: #c82333;
+        }
+        .owner-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -111,6 +117,7 @@
             %>
         </table>
 
+        <a href="http://localhost:5173/owner" class="owner-btn">Go to Owner Page</a>
         <a href="admin_login" class="logout-btn">Logout</a>
     </div>
 </main>
