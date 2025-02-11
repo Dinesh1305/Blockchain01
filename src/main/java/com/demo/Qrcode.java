@@ -13,6 +13,8 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -36,6 +38,38 @@ public class  Qrcode{
     private CompanyService companyService;
 	
 	
+    
+    @PostMapping("/remover")
+    public String removeCompany(@RequestParam("email") String email, HttpServletRequest request) {
+        try {
+        	SendEmail.send(email);
+            CompanyService.add(email);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "3105");
+
+            String sql = "DELETE FROM companydetails WHERE email = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+
+            int rowsAffected = stmt.executeUpdate();
+            conn.close();
+
+            if (rowsAffected > 0) {
+                request.setAttribute("message", "Company removed successfully!");
+            } else {
+                request.setAttribute("message", "Company not found!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("message", "Database error!");
+        }
+
+        return "admin_dashboard"; // Redirect back to the dashboard
+    }
+    
+    
+    
+    
 	//blockchainfunctions
 	 @GetMapping("send")
 	    public RedirectView redirectToFrontend() {
@@ -54,15 +88,17 @@ public class  Qrcode{
 	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "3105");
 
 	            // Query to check credentials
-	            String query = "SELECT * FROM  companydetails  WHERE email = ? AND password = ?";
+	            String query = "SELECT * FROM  blockchain  WHERE email = ? AND password = ?";
 	            PreparedStatement stmt = con.prepareStatement(query);
 	            stmt.setString(1, email);
 	            stmt.setString(2, password);
 	            ResultSet rs = stmt.executeQuery();
 
 	            if (rs.next()) {
+                    return new ModelAndView(new RedirectView("http://localhost:5173/company"));
+
 	                // If credentials are correct, redirect to index
-	                mv.setViewName("index");
+	               // mv.setViewName("http://localhost:5173/company");
 	            } else {
 	                // If incorrect, return error message
 	                mv.setViewName("sign_in");

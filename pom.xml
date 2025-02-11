@@ -42,6 +42,13 @@
             <artifactId>tomcat-jasper</artifactId>
             <version>10.1.34</version>
         </dependency>
+			
+	<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.7</version> 
+</dependency>
+
 
         <!-- Spring Boot Embedded Tomcat -->
         <dependency>
